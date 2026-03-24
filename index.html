@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burnout Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="static-overlay"></div>
+
+    <div id="ui-panel">
+        <h2>Mental Queue</h2>
+        <div id="task-list">
+            <button class="task-btn">Study</button>
+            <button class="task-btn">Write Report</button>
+            <button class="task-btn">Start Project</button>
+            <button class="task-btn">Debug Code</button>
+            <button class="task-btn">Answer Emails</button>
+            <button class="task-btn">Work on Assignment</button>
+            <button class="task-btn">Clean Room</button>
+
+        </div>
+        <button id="break-btn">Take a Break</button>
+    </div>
+    
+    <div id="stress-meter">
+        <div id="stress-bar-container">
+            <div id="stress-fill"></div>
+        </div>
+        <div id="stress-label">STRESS</div>
+   
+    </div>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>

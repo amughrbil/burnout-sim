@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    overflow: hidden; /* Stops scrolling */
+    background-color: #050510; /* Dark void color */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+#ui-panel {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 250px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    z-index: 10; /* Keeps it above the 3D canvas */
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+.task-btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.task-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.task-btn.completed {
+    opacity: 0.3;
+    text-decoration: line-through;
+    pointer-events: none; /* Stops it from being clicked again */
+}
+
+#break-btn {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: #ff4757;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 71, 87, 0.5);
+}
+
+/* The visual static effect */
+#static-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Lets you click through it */
+    opacity: 0; /* Hidden by default */
+    background-image: repeating-radial-gradient(circle at 17% 32%, white, black 0.00085px);
+    mix-blend-mode: overlay;
+    z-index: 5;
+    transition: opacity 0.5s ease;
+}
+/* --- Stress Meter Styles --- */
+#stress-meter {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%); /* Perfectly centers it vertically */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+
+#stress-bar-container {
+    width: 30px;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden; /* Keeps the fill color inside the rounded corners */
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+#stress-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%; /* Starts completely empty */
+    /* A gradient that smoothly goes from green to yellow to red */
+    background: linear-gradient(to top, #2ed573, #eccc68, #ff4757);
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth growing animation */
+    border-radius: 15px;
+}
+
+#stress-label {
+    margin-top: 15px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
